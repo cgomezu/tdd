@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.StringCalculator.StringCalculator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ public class StringCalculatorTest {
     public void setUp() throws Exception {
         stringCalculator = new StringCalculator();
     }
-
+cd 
     @Test
     public void testAddWithEmptyString() throws Exception {
         assertEquals(0, stringCalculator.add(""));
