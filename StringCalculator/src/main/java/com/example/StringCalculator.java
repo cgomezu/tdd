@@ -9,21 +9,24 @@ import java.util.List;
  */
 public class StringCalculator {
 
+    private final String NEW_LINE = "\n";
+    private final String DEFAULT_DELIMITER = ",";
+
     public int add(String numbers) throws Exception {
         int sum = 0;
-        String regexDelimiter = "";
+        String regexDelimiter;
         List<String> delimiters;
         if(containDelimiter(numbers)) {
             String formatDelimiters = "";
             delimiters = getDelimiters(numbers);
             formatDelimiters = getFormatDelimiter(numbers, delimiters, formatDelimiters);
-            numbers = numbers.replaceAll("\\/\\/" + formatDelimiters + "\n", "");
+            numbers = numbers.replaceAll("\\/\\/" + formatDelimiters + NEW_LINE, "");
         } else {
             delimiters = new ArrayList<>();
-            delimiters.add(",");
+            delimiters.add(DEFAULT_DELIMITER);
         }
         String regexDelimiters = getRegexDelimiters(delimiters);
-        regexDelimiter = "(\n|" + regexDelimiters + ")";
+        regexDelimiter = "(" + NEW_LINE + "|" + regexDelimiters + ")";
         if (numbers.length() != 0) {
             String[] splitNumbers = numbers.split(regexDelimiter, numbers.split(regexDelimiter).length);
             try {
@@ -82,12 +85,12 @@ public class StringCalculator {
         if (containFormatDelimiter(numbers)) {
             char[] chars;
             if (containsMultipleDelimiter(numbers)) {
-                List<String> delimitersNoFormat = Arrays.asList(numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf("\n") - 1).split("\\]\\["));
+                List<String> delimitersNoFormat = Arrays.asList(numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf(NEW_LINE) - 1).split("\\]\\["));
                 for (String delimiter: delimitersNoFormat) {
                     delimiters.add(formatDelimiter(delimiter));
                 }
             } else {
-                chars = numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf("\n") - 1).toCharArray();
+                chars = numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf(NEW_LINE) - 1).toCharArray();
                 String delimiter = "";
                 for (int charIndex = 0; charIndex < chars.length; charIndex++) {
                     delimiter += formatDelimiter(String.valueOf(chars[charIndex]));
@@ -95,7 +98,7 @@ public class StringCalculator {
                 delimiters.add(delimiter);
             }
         } else {
-            delimiters.add(numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf("\n")));
+            delimiters.add(numbers.substring(numbers.indexOf("//") + 2, numbers.indexOf(NEW_LINE)));
         }
         return delimiters;
     }
@@ -110,7 +113,7 @@ public class StringCalculator {
     }
 
     private boolean containsMultipleDelimiter(String numbers) {
-        return numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf("\n") - 1).contains("][");
+        return numbers.substring(numbers.indexOf("[") + 1, numbers.indexOf(NEW_LINE) - 1).contains("][");
     }
 
     private boolean containFormatDelimiter(String numbers) {
