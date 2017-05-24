@@ -1,4 +1,4 @@
-### Code Kata: ### String Calculator
+### Code Kata: String Calculator ###
 
 IDE: Intellij IDEA
 Project Type: Maven Project
