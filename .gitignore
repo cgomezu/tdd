@@ -1,7 +1,7 @@
 # Intellij project files
-StringCalculator/*.iml
-StringCalculator/*.ipr
-StringCalculator/*.iws
-StringCalculator/.idea/
+*/*.iml
+*/*.ipr
+*/*.iws
+*/.idea/
 
-StringCalculator/target/
+*/target/
