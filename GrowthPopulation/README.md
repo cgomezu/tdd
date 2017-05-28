@@ -1,4 +1,4 @@
-### Kata - Growth of Population ###
+# Kata - Growth of Population #
 
 ## Description: ##
 

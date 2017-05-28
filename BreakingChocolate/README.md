@@ -9,4 +9,5 @@ If input data is invalid you should return 0 (as in no breaks are needed if we d
 
 ### Examples: ###
 > Chocolate.breakChocolate(5, 5) -> return 24
+>
 > Chocolate.breakChocolate(1, 1) -> return 0

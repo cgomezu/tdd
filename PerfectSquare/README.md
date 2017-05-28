@@ -1,3 +1,5 @@
+# Kata - Perfect Square #
+
 ## Description: ##
 
 You might know some pretty large perfect squares. But what about the NEXT one?
@@ -6,7 +8,9 @@ If the parameter is itself not a perfect square, than -1 should be returned. You
 
 ### Examples: ###
 > findNextSquare(121) --> returns 144
+>
 > findNextSquare(625) --> returns 676
+>
 > findNextSquare(114) --> returns -1 since 114
 
 Kata found in [codewars.com](https://www.codewars.com/kata)
