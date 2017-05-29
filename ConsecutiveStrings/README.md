@@ -10,3 +10,5 @@ u are given an array strarr of strings and an integer k. Your task is to return 
 >
 
 n being the length of the string array, if n = 0 or k > n or k <= 0 return "".
+
+Kata found in [codewars.com](https://www.codewars.com/kata)
